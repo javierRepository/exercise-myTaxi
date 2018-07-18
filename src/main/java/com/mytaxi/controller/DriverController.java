@@ -79,4 +79,11 @@ public class DriverController
     {
         return DriverMapper.makeDriverDTOList(driverService.find(onlineStatus));
     }
+
+    @PutMapping("/{driverId}")
+    public void selectCar(@Valid @PathVariable long driverId, @RequestParam Integer carId)
+            throws ConstraintsViolationException, EntityNotFoundException
+    {
+        driverService.selectCar(driverId,carId);
+    }
 }

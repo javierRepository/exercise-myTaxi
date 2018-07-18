@@ -17,6 +17,8 @@ public interface DriverService
 
     void updateLocation(long driverId, double longitude, double latitude) throws EntityNotFoundException;
 
+    void selectCar(Long driverId, Integer carId) throws EntityNotFoundException;
+
     List<DriverDO> find(OnlineStatus onlineStatus);
 
 }
