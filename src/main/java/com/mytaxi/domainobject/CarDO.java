@@ -1,5 +1,6 @@
 package com.mytaxi.domainobject;
 
+
 import com.mytaxi.domainvalue.EngineType;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -166,4 +167,5 @@ public class CarDO {
         result = 31 * result + (manufacturer != null ? manufacturer.hashCode() : 0);
         return result;
     }
+
 }
