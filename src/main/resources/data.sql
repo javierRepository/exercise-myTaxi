@@ -41,6 +41,8 @@ values
  'aced0005737200226f72672e737072696e676672616d65776f726b2e646174612e67656f2e506f696e7431b9e90ef11a4006020002440001784400017978704023000000000000404bfa1cac083127', now(), now(), false, 'ONLINE',
 'driver08pw', 'driver08');
 
---Create 2 Cars
---insert into car () values();
+--Create 1 Car
+-- insert into car (id, date_created, license_plate, seat_count, convertible, rating, engine_type, deleted, manufacturer)
+-- values
+--  (1, now(), license1, 4, true, 5, 'GASOLINE', false, 'Opel');
 --insert into car () values();

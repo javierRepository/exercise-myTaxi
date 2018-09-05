@@ -4,6 +4,7 @@ import com.mytaxi.controller.mapper.DriverMapper;
 import com.mytaxi.datatransferobject.DriverDTO;
 import com.mytaxi.domainobject.DriverDO;
 import com.mytaxi.domainvalue.OnlineStatus;
+import com.mytaxi.exception.CarAlreadyInUseException;
 import com.mytaxi.exception.ConstraintsViolationException;
 import com.mytaxi.exception.EntityNotFoundException;
 import com.mytaxi.service.driver.DriverService;
@@ -80,10 +81,18 @@ public class DriverController
         return DriverMapper.makeDriverDTOList(driverService.find(onlineStatus));
     }
 
-    @PutMapping("/{driverId}")
+    @PostMapping("/{driverId}")
+    @ResponseStatus(HttpStatus.ACCEPTED)
     public void selectCar(@Valid @PathVariable long driverId, @RequestParam Integer carId)
+            throws ConstraintsViolationException, EntityNotFoundException, CarAlreadyInUseException {
+        driverService.selectCar(driverId,carId);
+    }
+
+    @PostMapping("/{carId}")
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    public void deSelectCar(@Valid @PathVariable long driverId, @RequestParam Integer carId)
             throws ConstraintsViolationException, EntityNotFoundException
     {
-        driverService.selectCar(driverId,carId);
+        driverService.deSelectCar(driverId,carId);
     }
 }
