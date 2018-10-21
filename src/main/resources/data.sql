@@ -42,5 +42,6 @@ values
 'driver08pw', 'driver08');
 
 --Create 2 Cars
---insert into car () values();
+insert into car (id, date_created, licencse_plate, seat_count, convertible, rating, engine_type, deleted, manufacturer)
+values(1, now(), '123', 5, TRUE, 1, 'Gas', FALSE, 'Seat');
 --insert into car () values();

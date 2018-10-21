@@ -4,7 +4,7 @@ package com.mytaxi.service.driver;
 import com.mytaxi.domainobject.CarDO;
 import com.mytaxi.exception.ConstraintsViolationException;
 import com.mytaxi.exception.EntityNotFoundException;
-import com.mytaxi.domainvalue.EngineType;
+import com.mytaxi.util.EngineType;
 
 
 public interface CarService {

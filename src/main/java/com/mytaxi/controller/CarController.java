@@ -4,7 +4,7 @@ package com.mytaxi.controller;
 import com.mytaxi.controller.mapper.CarMapper;
 import com.mytaxi.datatransferobject.CarDTO;
 import com.mytaxi.domainobject.CarDO;
-import com.mytaxi.domainvalue.EngineType;
+import com.mytaxi.util.EngineType;
 import com.mytaxi.exception.ConstraintsViolationException;
 import com.mytaxi.exception.EntityNotFoundException;
 import com.mytaxi.service.driver.CarService;

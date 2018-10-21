@@ -4,7 +4,7 @@ import com.mytaxi.dataaccessobject.CarRepository;
 import com.mytaxi.domainobject.CarDO;
 import com.mytaxi.exception.ConstraintsViolationException;
 import com.mytaxi.exception.EntityNotFoundException;
-import com.mytaxi.domainvalue.EngineType;
+import com.mytaxi.util.EngineType;
 import org.slf4j.LoggerFactory;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
@@ -49,11 +49,11 @@ public class DefaultCarService implements CarService {
     @Transactional
     public void updateCarInfo(long carId, String licencePlate, Integer seatCount, Integer rating, Boolean convertible, Enum<EngineType> engineType) throws EntityNotFoundException {
         CarDO carDO = findCarChecked(carId);
-        carDO.setLicencePlate(licencePlate);
-        carDO.setSeatCount(seatCount);
+        carDO.setlicence_plate(licencePlate);
+        carDO.setseat_count(seatCount);
         carDO.setRating(rating);
         carDO.setConvertible(convertible);
-        carDO.setEngineType(engineType);
+        carDO.setEngine_type(engineType);
     }
 
 
