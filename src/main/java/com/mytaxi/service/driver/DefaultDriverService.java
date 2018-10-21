@@ -4,6 +4,7 @@ import com.mytaxi.dataaccessobject.DriverRepository;
 import com.mytaxi.domainobject.DriverDO;
 import com.mytaxi.domainvalue.GeoCoordinate;
 import com.mytaxi.domainvalue.OnlineStatus;
+import com.mytaxi.exception.CarAlreadyInUseException;
 import com.mytaxi.exception.ConstraintsViolationException;
 import com.mytaxi.exception.EntityNotFoundException;
 import org.slf4j.LoggerFactory;
@@ -94,10 +95,22 @@ public class DefaultDriverService implements DriverService {
 
     @Override
     @Transactional
-    public void selectCar(Long driverId, Integer carId) throws EntityNotFoundException {
+    public void selectCar(Long driverId, Integer carId) throws EntityNotFoundException, CarAlreadyInUseException {
 
         DriverDO driverDO = findDriverChecked(driverId);
+        if(driverDO.getCarIdSelected()!=null){
+            throw new CarAlreadyInUseException();
+        }
         driverDO.setCarIdSelected(carId);
+
+    }
+
+    @Override
+    @Transactional
+    public void deSelectCar(Long driverId, Integer carId) throws EntityNotFoundException {
+
+        DriverDO driverDO = findDriverChecked(driverId);
+        driverDO.setCarIdSelected(null);
 
     }
 
